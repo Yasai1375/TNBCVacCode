@@ -158,7 +158,7 @@ df_percent_rep<-df_percent_rep %>%
 
 
 
-# list of expressed patients each for CTA  --------------------------------
+# list of expressed patients for each CTA  --------------------------------
 
 expressed_patient<-function(id,treshold_count=10,treshold_fpkm=0.3){
   names<-colnames(BRCAMatrix_TP[,BRCAMatrix_TP[id,]>=treshold_count & BRCAMatrix_fpkm_TP[id,]>=treshold_fpkm])
