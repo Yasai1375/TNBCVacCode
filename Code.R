@@ -45,24 +45,6 @@ barcode<-unique(c(er_pr_her2$bcr_patient_barcode , retrieve_er_pr_her2$bcr_patie
 
 
 
-# visualizing the TNBC selection ------------------------------------------
-
-er.cols <- grep("er_status_by_ihc",colnames(clinical))
-clinical[clinical$bcr_patient_barcode %in% barcode,c(2,er.cols)] %>% 
-  DT::datatable(options = list(scrollX = TRUE))
-
-pr.cols<-grep("pr_status_by_ihc",colnames(clinical))
-clinical[clinical$bcr_patient_barcode %in% barcode,c(2,pr.cols)] %>% 
-  DT::datatable(options = list(scrollX = TRUE))
-
-her2.cols<-grep("her2",colnames(clinical))
-clinical[clinical$bcr_patient_barcode %in% barcode,c(2,her2.cols)] %>% 
-  DT::datatable(options = list(scrollX = TRUE))
-
-plyr::count(clinical$er_status_by_ihc)
-
-
-
 # obtaining HTSeq - Counts from GDC portal --------------------------------
 
 query <- GDCquery(project = "TCGA-BRCA",
